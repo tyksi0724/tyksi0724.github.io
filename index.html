@@ -1,9 +1,85 @@
-<header>
-   <link rel="stylesheet" href="styles.css" type="text/css">
-   <title>ICEBODAYO.COM</title>
-   </a>
-</header>
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- 左サイドバー -->
+            <aside class="sidebar">
+                <img
+                    src="assets/profile.jpg"
+                    alt="プロフィール画像"
+                    class="profile-image"
+                />
 
-<body>   
-あいすぼドット・ミー
-</body>
+                <h1>あなたの名前</h1>
+
+                <p class="bio">
+                    ここに自己紹介を書きます。
+                    専門分野や趣味など自由に記載してください。
+                </p>
+
+                <section class="sidebar-section">
+                    <h2>SNS</h2>
+
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">X(Twitter)</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h2>Favorite Music</h2>
+
+                    <ul>
+                        <li>
+                            <a href="#"> Song Title - Artist </a>
+                        </li>
+
+                        <li>
+                            <a href="#"> Song Title - Artist </a>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- 右コンテンツ -->
+            <main class="main-content">
+                <h2>Works</h2>
+
+                <div class="works-grid">
+                    <!-- 作品1 -->
+                    <article class="work-card">
+                        <img src="assets/works/work1.jpg" alt="作品1" />
+
+                        <div class="work-content">
+                            <h3>作品タイトル</h3>
+
+                            <p>作品の説明を記載します。</p>
+
+                            <a href="#"> 詳細を見る </a>
+                        </div>
+                    </article>
+
+                    <!-- 作品2 -->
+                    <article class="work-card">
+                        <img src="assets/works/work2.jpg" alt="作品2" />
+
+                        <div class="work-content">
+                            <h3>作品タイトル</h3>
+
+                            <p>作品の説明を記載します。</p>
+
+                            <a href="#"> 詳細を見る </a>
+                        </div>
+                    </article>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
