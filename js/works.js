@@ -1,15 +1,8 @@
 const works = [
     {
-        title: "Portfolio Website",
-        description: "自分のポートフォリオサイト",
+        title: "ネオネオン icebo Garage Bootleg",
+        description: "ネオネオン / Demo*27のGarageを作りました．Free dl対応",
         image: "assets/works/work1.jpg",
-        link: "https://example.com",
-    },
-
-    {
-        title: "Game Project",
-        description: "Unityで制作したゲーム",
-        image: "assets/works/work2.jpg",
-        link: "https://example.com",
+        link: "https://x.com/icebodayo/status/2059945277658906883?s=20",
     },
 ];
