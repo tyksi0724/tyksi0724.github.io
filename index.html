@@ -3,83 +3,57 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Your Portfolio</title>
-        <link rel="stylesheet" href="style.css" />
+        <title>My Portfolio</title>
+
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <div class="container">
-            <!-- 左サイドバー -->
             <aside class="sidebar">
                 <img
                     src="assets/profile.jpg"
-                    alt="プロフィール画像"
+                    alt="Profile"
                     class="profile-image"
                 />
 
-                <h1>あなたの名前</h1>
+                <h1 id="name">Your Name</h1>
 
-                <p class="bio">
-                    ここに自己紹介を書きます。
-                    専門分野や趣味など自由に記載してください。
-                </p>
+                <p class="description">自己紹介文をここに記載</p>
 
-                <section class="sidebar-section">
+                <section>
                     <h2>SNS</h2>
-
-                    <ul>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">X(Twitter)</a></li>
-                        <li><a href="#">LinkedIn</a></li>
+                    <ul class="link-list">
+                        <li>
+                            <a href="https://github.com/" target="_blank"
+                                >GitHub</a
+                            >
+                        </li>
+                        <li><a href="https://x.com/" target="_blank">X</a></li>
+                        <li>
+                            <a href="https://www.linkedin.com/" target="_blank"
+                                >LinkedIn</a
+                            >
+                        </li>
                     </ul>
                 </section>
 
-                <section class="sidebar-section">
+                <section>
                     <h2>Favorite Music</h2>
-
-                    <ul>
-                        <li>
-                            <a href="#"> Song Title - Artist </a>
-                        </li>
-
-                        <li>
-                            <a href="#"> Song Title - Artist </a>
-                        </li>
-                    </ul>
+                    <ul id="music-list"></ul>
                 </section>
             </aside>
 
-            <!-- 右コンテンツ -->
-            <main class="main-content">
-                <h2>Works</h2>
+            <main class="content">
+                <section>
+                    <h2>Works</h2>
 
-                <div class="works-grid">
-                    <!-- 作品1 -->
-                    <article class="work-card">
-                        <img src="assets/works/work1.jpg" alt="作品1" />
-
-                        <div class="work-content">
-                            <h3>作品タイトル</h3>
-
-                            <p>作品の説明を記載します。</p>
-
-                            <a href="#"> 詳細を見る </a>
-                        </div>
-                    </article>
-
-                    <!-- 作品2 -->
-                    <article class="work-card">
-                        <img src="assets/works/work2.jpg" alt="作品2" />
-
-                        <div class="work-content">
-                            <h3>作品タイトル</h3>
-
-                            <p>作品の説明を記載します。</p>
-
-                            <a href="#"> 詳細を見る </a>
-                        </div>
-                    </article>
-                </div>
+                    <div id="works-container" class="works-grid"></div>
+                </section>
             </main>
         </div>
+
+        <script src="js/works.js"></script>
+        <script src="js/music.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
