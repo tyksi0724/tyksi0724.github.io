@@ -1,0 +1,463 @@
+/* ============================================
+   90s RETRO PERSONAL HOMEPAGE — style.css
+   カスタマイズ方法はコメントを参照してください
+============================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Special+Elite&display=swap");
+
+/* ── CSS変数（カラーテーマ）── */
+:root {
+    --bg: #000080;
+    --bg2: #000033;
+    --text: #00ff00;
+    --text2: #ffff00;
+    --accent: #ff00ff;
+    --accent2: #00ffff;
+    --link: #ff6600;
+    --border: #00ff00;
+    --panel: #001a00;
+    --panel2: #0a0a3a;
+    --blink: #ff0000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg2);
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 0, 0.03) 2px,
+        rgba(0, 255, 0, 0.03) 4px
+    );
+    color: var(--text);
+    font-family: "VT323", monospace;
+    font-size: 18px;
+    cursor:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><text y='16' font-size='16'>✦</text></svg>"),
+        auto;
+    min-height: 100vh;
+}
+
+/* ── SCANLINE OVERLAY ── */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0, 0, 0, 0.15) 3px,
+        rgba(0, 0, 0, 0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* ── MARQUEE BAR ── */
+.marquee-bar {
+    background: var(--accent);
+    color: #000;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    padding: 6px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.marquee-inner {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* ── WRAPPER ── */
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* ── HEADER ── */
+header {
+    text-align: center;
+    border: 4px double var(--accent2);
+    background: var(--panel2);
+    padding: 20px;
+    margin: 10px 0;
+    position: relative;
+    box-shadow:
+        0 0 20px var(--accent2),
+        inset 0 0 30px rgba(0, 0, 255, 0.1);
+}
+header::before,
+header::after {
+    content: "★ ★ ★ ★ ★";
+    display: block;
+    color: var(--text2);
+    font-size: 14px;
+    letter-spacing: 8px;
+    margin: 4px 0;
+}
+
+/* ★ サイト名をここで変更 ★ */
+.site-title {
+    font-family: "Press Start 2P", monospace;
+    font-size: clamp(18px, 4vw, 32px);
+    color: var(--text2);
+    text-shadow:
+        3px 3px var(--accent),
+        -1px -1px var(--accent2);
+    animation: flicker 4s infinite;
+    line-height: 1.6;
+}
+.site-subtitle {
+    font-size: 16px;
+    color: var(--accent2);
+    margin-top: 8px;
+    letter-spacing: 4px;
+}
+
+@keyframes flicker {
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+        text-shadow:
+            3px 3px var(--accent),
+            -1px -1px var(--accent2);
+    }
+    20%,
+    24%,
+    55% {
+        opacity: 0.6;
+        text-shadow: none;
+    }
+}
+
+/* ── VISITOR COUNTER AREA ── */
+.counter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: var(--panel);
+    border: 2px solid var(--border);
+    padding: 8px;
+    margin: 5px 0;
+    font-size: 14px;
+}
+.counter-bar span {
+    color: var(--text2);
+}
+
+/* ── NAV ── */
+nav {
+    background: #000;
+    border: 3px solid var(--accent);
+    padding: 6px;
+    margin: 10px 0;
+    text-align: center;
+}
+nav a {
+    display: inline-block;
+    color: var(--text2);
+    text-decoration: none;
+    font-family: "Press Start 2P", monospace;
+    font-size: 9px;
+    padding: 6px 12px;
+    margin: 3px;
+    border: 2px outset #888;
+    background: linear-gradient(180deg, #444 0%, #222 100%);
+    transition: all 0.1s;
+}
+nav a:hover {
+    border-style: inset;
+    background: linear-gradient(180deg, #222 0%, #444 100%);
+    color: var(--accent);
+}
+
+/* ── MAIN GRID ── */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 10px;
+    margin: 10px 0;
+}
+@media (max-width: 650px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── SECTION PANELS ── */
+.panel {
+    border: 3px solid var(--border);
+    background: var(--panel);
+    padding: 14px;
+    margin-bottom: 10px;
+}
+.panel-title {
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    color: #000;
+    background: var(--text2);
+    padding: 4px 8px;
+    margin: -14px -14px 12px -14px;
+    letter-spacing: 2px;
+}
+
+/* ── SOCIAL LINKS ── */
+.social-links {
+    list-style: none;
+}
+.social-links li {
+    margin: 8px 0;
+}
+.social-links a {
+    color: var(--link);
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.1s;
+}
+.social-links a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+.social-icon {
+    font-size: 22px;
+}
+
+/* ── WORKS GALLERY ── */
+/* ★ 作品を追加するには works-grid の中に .work-item を追加するだけ ★ */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 8px;
+}
+.work-item {
+    border: 2px solid var(--accent2);
+    background: var(--panel2);
+    padding: 8px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+}
+.work-item:hover {
+    box-shadow: 0 0 12px var(--accent2);
+}
+.work-item img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 6px;
+    border: 1px solid #333;
+    background: #0a0a2a;
+}
+.work-item-title {
+    font-size: 14px;
+    color: var(--text2);
+    margin-bottom: 4px;
+}
+.work-item-desc {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* ── APPLE MUSIC EMBED ── */
+/* ★ Apple Musicのプレイリストを埋め込む場所 ★ */
+.music-embed {
+    background: var(--panel2);
+    border: 2px solid var(--accent);
+    padding: 10px;
+    margin-top: 8px;
+    min-height: 200px;
+}
+.music-placeholder {
+    text-align: center;
+    padding: 30px 10px;
+    color: #888;
+    font-size: 14px;
+    border: 2px dashed #444;
+}
+.music-placeholder .big-icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ── SIDEBAR ── */
+.sidebar .panel {
+    margin-bottom: 10px;
+}
+.about-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+}
+.about-img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 10px;
+    object-fit: cover;
+    border: 3px solid var(--accent2);
+    image-rendering: pixelated;
+    background: #0a0a2a;
+}
+
+/* ── BLINK ── */
+.blink {
+    animation: blink-anim 1s step-end infinite;
+}
+@keyframes blink-anim {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ── DIVIDER ── */
+hr.retro {
+    border: none;
+    border-top: 2px dashed var(--accent);
+    margin: 12px 0;
+}
+
+/* ── UNDER CONSTRUCTION ── */
+.under-construction {
+    text-align: center;
+    padding: 6px;
+    font-size: 13px;
+    color: var(--blink);
+}
+
+/* ── GUESTBOOK TEASER ── */
+.guestbook-msg {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.7;
+}
+
+/* ── FOOTER ── */
+footer {
+    text-align: center;
+    border-top: 3px double var(--accent);
+    padding: 14px;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+footer a {
+    color: var(--link);
+}
+
+/* ── RAINBOW TEXT ── */
+.rainbow {
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        green,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-shift 3s linear infinite;
+}
+@keyframes rainbow-shift {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 200%;
+    }
+}
+
+/* ── NOW PLAYING TICKER ── */
+.now-playing {
+    background: #000;
+    border: 1px solid var(--accent);
+    padding: 4px 8px;
+    font-size: 13px;
+    color: var(--accent2);
+    margin-bottom: 6px;
+}
+
+/* ── WORK MODAL ── */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal-box {
+    background: var(--panel);
+    border: 4px double var(--accent2);
+    max-width: 600px;
+    width: 90%;
+    padding: 20px;
+    position: relative;
+}
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: var(--blink);
+    color: #fff;
+    border: 2px outset #888;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.modal-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    background: #0a0a2a;
+    border: 2px solid var(--border);
+    margin-bottom: 10px;
+}
+.modal-title {
+    color: var(--text2);
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+.modal-desc {
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+}

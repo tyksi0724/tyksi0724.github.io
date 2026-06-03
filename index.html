@@ -3,74 +3,392 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>あいすぼ・ドット・ミー</title>
-
-        <link rel="stylesheet" href="css/style.css" />
+        <title>★ ICEBO.ME ★</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="container">
-            <aside class="sidebar">
-                <img
-                    src="assets/profile.png"
-                    alt="Profile"
-                    class="profile-image"
-                />
-
-                <h1 id="name">あいすぼ</h1>
-
-                <p class="description"> Webサイト準備中 DTM, DJ, VJなど.....</p>
-
-                <section>
-                    <h2>Link</h2>
-                    <ul class="link-list">
-                        <li>
-                            <a href="https://x.com/icebodayo" target="_blank"
-                                >X</a
-                            >
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://soundcloud.com/icebodayo"
-                                target="_blank"
-                                >SoundCloud</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="https://www.instagram.com/icebodayo?igsh=MTk4a2Y0dTFwbzZ6MQ%3D%3D&utm_source=qr"
-                                target="_blank"
-                                >Instagram</a
-                            >
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.mixcloud.com/ICEBO/"
-                                target="_blank"
-                                >MixCLOUD</a
-                            >
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- <section>
-                    <h2>Favorite Music</h2>
-                    <ul id="music-list"></ul>
-                </section> 
-            </aside>
-
-            <main class="content">
-                <section>
-                    <h2>Works</h2>
-
-                    <div id="works-container" class="works-grid"></div>
-                </section>
-            </main>
+        <!-- ▼ マーキーバー: テキストを好きに変更してください ▼ -->
+        <div class="marquee-bar">
+            <span class="marquee-inner"> ★ あいすぼ・ドット・ミー ★ </span>
         </div>
 
-        <script src="js/works.js"></script>
-        <script src="js/music.js"></script>
-        <script src="js/main.js"></script> -->
+        <div class="wrapper">
+            <!-- ▼ ヘッダー ▼ -->
+            <header>
+                <!-- ★ サイト名を変更してください ★ -->
+                <div class="site-title">あいすぼ.ME</div>
+                <div class="site-subtitle">〜 PERSONAL HOMEPAGE 〜</div>
+            </header>
+
+            <!-- ▼ カウンターバー ▼ -->
+            <div class="counter-bar">
+                <span>👁 VISITOR: <b id="visitor-count">000000</b></span>
+                <span class="blink">●</span>
+                <span>🌐 SINCE 2004</span>
+                <span class="blink">●</span>
+                <span>Best viewed at 800×600</span>
+                <span class="blink">●</span>
+                <span class="rainbow">★ WELCOME ★</span>
+            </div>
+
+            <!-- ▼ ナビゲーション ▼ -->
+            <nav>
+                <a href="#about">ABOUT</a>
+                <a href="#works">WORKS</a>
+                <a href="#music">MUSIC</a>
+                <a href="#links">LINKS</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+
+            <!-- ▼ メインコンテンツ ▼ -->
+            <div class="main-grid">
+                <!-- ▼ 左カラム ▼ -->
+                <main>
+                    <!-- ★★ 作品ギャラリー ★★ -->
+                    <!-- 作品を追加するには .work-item ブロックをコピーして増やすだけ -->
+                    <section id="works" class="panel">
+                        <div class="panel-title">⚡ MY WORKS ⚡</div>
+                        <div class="under-construction">
+                            <span class="blink">🚧 ALWAYS UPDATING 🚧</span>
+                        </div>
+                        <hr class="retro" />
+                        <div class="works-grid">
+                            <!-- ▼ 作品1 ▼ ここをコピーして増やす -->
+                            <div
+                                class="work-item"
+                                onclick="
+                                    openModal(
+                                        '作品タイトル1',
+                                        'works/image1.jpg',
+                                        'ここに作品の説明を入れてください。ジャンル、制作年など自由に。',
+                                    )
+                                "
+                            >
+                                <!-- src= に画像パスを指定。なければプレースホルダー表示 -->
+                                <img
+                                    src="works/image1.jpg"
+                                    alt="作品1"
+                                    onerror="
+                                        this.style.background = '#0a0a2a';
+                                        this.alt = '[ NO IMAGE ]';
+                                    "
+                                />
+                                <div class="work-item-title">作品タイトル1</div>
+                                <div class="work-item-desc">
+                                    2024 / illustration
+                                </div>
+                            </div>
+                            <!-- ▲ 作品1 ▲ -->
+
+                            <!-- ▼ 作品2 ▼ -->
+                            <div
+                                class="work-item"
+                                onclick="
+                                    openModal(
+                                        '作品タイトル2',
+                                        'works/image2.jpg',
+                                        '説明テキストをここに入力。',
+                                    )
+                                "
+                            >
+                                <img
+                                    src="works/image2.jpg"
+                                    alt="作品2"
+                                    onerror="
+                                        this.style.background = '#0a0a2a';
+                                        this.alt = '[ NO IMAGE ]';
+                                    "
+                                />
+                                <div class="work-item-title">作品タイトル2</div>
+                                <div class="work-item-desc">2024 / music</div>
+                            </div>
+                            <!-- ▲ 作品2 ▲ -->
+
+                            <!-- ▼ 作品3 ▼ -->
+                            <div
+                                class="work-item"
+                                onclick="
+                                    openModal(
+                                        '作品タイトル3',
+                                        'works/image3.jpg',
+                                        '説明テキストをここに入力。',
+                                    )
+                                "
+                            >
+                                <img
+                                    src="works/image3.jpg"
+                                    alt="作品3"
+                                    onerror="
+                                        this.style.background = '#0a0a2a';
+                                        this.alt = '[ NO IMAGE ]';
+                                    "
+                                />
+                                <div class="work-item-title">作品タイトル3</div>
+                                <div class="work-item-desc">2023 / video</div>
+                            </div>
+                            <!-- ▲ 作品3 ▲ -->
+
+                            <!--
+          ====================================
+          ★ 作品を追加する方法 ★
+          上の .work-item ブロックをコピーして
+          以下を変更するだけです:
+          1. onclick の '作品タイトル'
+          2. onclick の 'works/imageX.jpg' → 実際の画像パス
+          3. onclick の '説明テキスト'
+          4. <img src="..."> → 実際の画像パス
+          5. <div class="work-item-title"> → タイトル
+          6. <div class="work-item-desc"> → サブテキスト
+          ====================================
+          -->
+                        </div>
+                    </section>
+
+                    <!-- ★★ Apple Music プレイリスト埋め込み ★★ -->
+                    <section id="music" class="panel">
+                        <div class="panel-title">🎵 MY PLAYLIST 🎵</div>
+                        <div class="now-playing">
+                            ♪ NOW PLAYING: <span class="blink">▶</span> MY
+                            FAVORITE TRACKS
+                        </div>
+
+                        <!--
+        ====================================
+        ★ Apple Music プレイリストの埋め込み方 ★
+
+        1. Apple Musicでプレイリストを開く
+        2. 「...」→「プレイリストを共有」→「埋め込み」
+        3. 表示されたiframeコードをここに貼り付ける
+
+        例:
+        <iframe
+          allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+          frameborder="0"
+          height="450"
+          style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;"
+          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+          src="https://embed.music.apple.com/jp/playlist/YOUR-PLAYLIST-ID">
+        </iframe>
+        ====================================
+        -->
+
+                        <!-- ▼ ここにApple Musicのiframeコードを貼り付け ▼ -->
+                        <div class="music-embed">
+                            <div class="music-placeholder">
+                                <span class="big-icon">🎵</span>
+                                ここにApple Musicのiframeを貼り付けてください<br /><br />
+                                <small
+                                    >Apple Music → プレイリスト
+                                    →「...」→「共有」→「埋め込み」</small
+                                >
+                            </div>
+                        </div>
+                        <!-- ▲ Apple Music埋め込みここまで ▲ -->
+                    </section>
+                </main>
+
+                <!-- ▼ 右サイドバー ▼ -->
+                <aside class="sidebar">
+                    <!-- About -->
+                    <section id="about" class="panel">
+                        <div class="panel-title">👤 ABOUT ME</div>
+                        <!-- ★ プロフィール画像: src= を変更 ★ -->
+                        <img
+                            class="about-img"
+                            src="profile.jpg"
+                            alt="profile"
+                            onerror="this.style.background = '#0a0a2a'"
+                        />
+                        <!-- ★ 自己紹介テキストを変更 ★ -->
+                        <p class="about-text">
+                            はじめまして！<br />
+                            YOUR NAME です。<br /><br />
+                            音楽 / イラスト / etc.<br />
+                            なんでも作ります。<br /><br />
+                            <span class="blink">★</span> 好きなもの:<br />
+                            ・〇〇<br />
+                            ・〇〇<br />
+                            ・〇〇
+                        </p>
+                    </section>
+
+                    <!-- SNS Links -->
+                    <section id="links" class="panel">
+                        <div class="panel-title">🔗 LINKS</div>
+                        <ul class="social-links">
+                            <!-- ★ href= を自分のURLに変更 ★ -->
+                            <li>
+                                <a
+                                    href="https://x.com/YOUR_USERNAME"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <span class="social-icon">✕</span> X
+                                    (Twitter)
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://soundcloud.com/YOUR_USERNAME"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <span class="social-icon">☁</span>
+                                    SoundCloud
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.instagram.com/YOUR_USERNAME/"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <span class="social-icon">📷</span>
+                                    Instagram
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- Contact -->
+                    <section id="contact" class="panel">
+                        <div class="panel-title">✉ CONTACT</div>
+                        <!-- ★ メールアドレスを変更 ★ -->
+                        <p class="guestbook-msg">
+                            お気軽にどうぞ！<br /><br />
+                            📧
+                            <a
+                                href="mailto:your@email.com"
+                                style="color: var(--link)"
+                            >
+                                your@email.com </a
+                            ><br /><br />
+                            <span class="blink">★</span> DM always open!
+                        </p>
+                    </section>
+
+                    <!-- 88x31 Web Badges エリア -->
+                    <div class="panel">
+                        <div class="panel-title">🏅 BADGES</div>
+                        <div
+                            style="
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 4px;
+                                margin-top: 4px;
+                            "
+                        >
+                            <!-- ★ 好きなバッジ画像を追加 ★ -->
+                            <div
+                                style="
+                                    width: 88px;
+                                    height: 31px;
+                                    background: #001a00;
+                                    border: 1px solid #0f0;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 9px;
+                                    color: #0f0;
+                                    font-family: &quot;Press Start 2P&quot;;
+                                "
+                            >
+                                RETRO
+                            </div>
+                            <div
+                                style="
+                                    width: 88px;
+                                    height: 31px;
+                                    background: #1a0000;
+                                    border: 1px solid #f00;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 9px;
+                                    color: #f00;
+                                    font-family: &quot;Press Start 2P&quot;;
+                                "
+                            >
+                                DIY
+                            </div>
+                            <div
+                                style="
+                                    width: 88px;
+                                    height: 31px;
+                                    background: #00001a;
+                                    border: 1px solid #00f;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 9px;
+                                    color: #0ff;
+                                    font-family: &quot;Press Start 2P&quot;;
+                                "
+                            >
+                                HTML
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- ▼ フッター ▼ -->
+            <footer>
+                <p>★ Copyright &copy; <span id="year"></span> YOUR NAME ★</p>
+                <p style="margin-top: 6px">
+                    Best viewed with
+                    <span class="rainbow">Netscape Navigator</span>
+                    800×600<br />
+                    <span class="blink">★ Made with ♥ and HTML ★</span>
+                </p>
+            </footer>
+        </div>
+        <!-- /wrapper -->
+
+        <!-- ▼ 作品モーダル ▼ -->
+        <div
+            class="modal-overlay"
+            id="modal"
+            onclick="if (event.target === this) closeModal();"
+        >
+            <div class="modal-box">
+                <button class="modal-close" onclick="closeModal()">
+                    [ X ]
+                </button>
+                <img id="modal-img" class="modal-img" src="" alt="" />
+                <div id="modal-title" class="modal-title"></div>
+                <div id="modal-desc" class="modal-desc"></div>
+            </div>
+        </div>
+
+        <script>
+            /* ── 年号を自動セット ── */
+            document.getElementById("year").textContent =
+                new Date().getFullYear();
+
+            /* ── 訪問者カウンター (ローカルストレージで簡易実装) ── */
+            const key = "retro_visitor_count";
+            let count = parseInt(localStorage.getItem(key) || "1234") + 1;
+            localStorage.setItem(key, count);
+            document.getElementById("visitor-count").textContent = String(
+                count,
+            ).padStart(6, "0");
+
+            /* ── 作品モーダル ── */
+            function openModal(title, imgSrc, desc) {
+                document.getElementById("modal-title").textContent = title;
+                document.getElementById("modal-desc").textContent = desc;
+                const img = document.getElementById("modal-img");
+                img.src = imgSrc;
+                img.alt = title;
+                document.getElementById("modal").classList.add("active");
+            }
+            function closeModal() {
+                document.getElementById("modal").classList.remove("active");
+            }
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") closeModal();
+            });
+        </script>
     </body>
 </html>
