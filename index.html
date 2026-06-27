@@ -35,6 +35,7 @@
             <nav>
                 <a href="#about">ABOUT</a>
                 <a href="#works">WORKS</a>
+                <a href="#lives">LIVE</a>
                 <a href="#music">MUSIC</a>
                 <a href="#links">LINKS</a>
                 <a href="#contact">CONTACT</a>
@@ -45,48 +46,39 @@
                 <!-- ▼ 左カラム ▼ -->
                 <main>
                     <!-- ★★ 作品ギャラリー ★★ -->
-                    <!-- 作品を追加するには .work-item ブロックをコピーして増やすだけ -->
-                    <section id="works" class="panel">
-                        <div class="panel-title">⚡ MY WORKS ⚡</div>
-                        <div class="under-construction">
-                            <span class="blink">🚧 準備中 🚧</span>
-                        </div>
-                        <hr class="retro" />
-                        <div class="works-grid">
-                            <!--
+                    <!--
           ====================================
-          ★ 作品を追加する方法 ★
-          下の .work-item ブロックをコピーして増やすだけ。
-          変更箇所は3つだけ:
-            1. href="..."       → リンク先URL
-            2. src="..."        → サムネイル画像パス
-            3. タイトル・サブテキスト
-          target="_blank" で別タブ、削除すると同タブで開く。
+          ★ 作品を追加する方法（index.html は触りません）★
+            1. works/ フォルダに 〇〇.json を作る
+               （works/works20260524.json をコピーすると楽）
+            2. works/manifest.json の "items" にそのファイル名を1行足す
+          → 中身は works.js が自動でここに描画します。
           ====================================
           -->
+                    <section id="works" class="panel">
+                        <div class="panel-title">⚡ MY WORKS ⚡</div>
+                        <hr class="retro" />
+                        <!-- ▼ 作品はここに works.js が自動で読み込みます ▼ -->
+                        <div class="works-grid"></div>
+                    </section>
 
-                            <!-- ▼ 作品1 ▼ ここをコピーして増やす -->
-                            <a
-                                class="work-item"
-                                href="https://x.com/icebodayo/status/2059945277658906883"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                <!-- src= に画像パスを指定。なければプレースホルダー表示 -->
-                                <img
-                                    src="works/works20260524.png"
-                                    alt="作品1"
-                                    onerror="
-                                        this.style.background = '#0a0a2a';
-                                        this.alt = '[ NO IMAGE ]';
-                                    "
-                                />
-                                <div class="work-item-title">
-                                    ネオネオン icebo Garage bootleg
-                                </div>
-                                <div class="work-item-desc">2026 / bootleg</div>
-                            </a>
-                            <!-- ▲ 作品1 ▲ -->
+                    <!-- ★★ 出演履歴（LIVE / DJ）★★ -->
+                    <!--
+          ====================================
+          ★ 出演を追加する方法（index.html は触りません）★
+            1. lives/ フォルダに 〇〇.json を作る
+               （lives/live20260524.json をコピーすると楽）
+            2. lives/manifest.json の "items" の先頭にファイル名を足す
+          → ここには最新3件、全履歴は lives.html に自動表示されます。
+          ====================================
+          -->
+                    <section id="lives" class="panel">
+                        <div class="panel-title">🎤 LIVE / 出演履歴 🎤</div>
+                        <hr class="retro" />
+                        <!-- ▼ 最新3件を lives.js が自動で読み込みます ▼ -->
+                        <div class="lives-list" data-limit="3"></div>
+                        <div class="lives-more">
+                            <a href="lives.html">▶ 出演履歴をすべて見る ▶</a>
                         </div>
                     </section>
 
@@ -309,5 +301,10 @@
                 count,
             ).padStart(6, "0");
         </script>
+
+        <!-- ▼ 作品ギャラリーを works/ から自動読み込み ▼ -->
+        <script src="works.js"></script>
+        <!-- ▼ 出演履歴を lives/ から自動読み込み（最新3件）▼ -->
+        <script src="lives.js"></script>
     </body>
 </html>

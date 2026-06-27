@@ -285,6 +285,73 @@ nav a:hover {
     font-size: 13px;
     color: #aaa;
 }
+/* 作品の読み込み中／作品なし のメッセージ */
+.works-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 18px 8px;
+    color: var(--text2);
+    font-size: 14px;
+}
+
+/* ── LIVE / 出演履歴 ── */
+/* ★ 出演を追加するには lives/ に json を足すだけ（lives.js が描画）★ */
+.lives-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+.live-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid var(--accent2);
+    background: var(--panel2);
+    padding: 8px 10px;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+}
+.live-item:hover {
+    box-shadow: 0 0 12px var(--accent2);
+}
+.live-date {
+    flex: 0 0 auto;
+    font-size: 13px;
+    color: var(--accent);
+    white-space: nowrap;
+}
+.live-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.live-title {
+    font-size: 14px;
+    color: var(--text2);
+}
+.live-venue {
+    font-size: 12px;
+    color: #aaa;
+}
+.live-arrow {
+    flex: 0 0 auto;
+    color: var(--link);
+    font-size: 12px;
+}
+.lives-more {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 13px;
+}
+.lives-loading {
+    text-align: center;
+    padding: 18px 8px;
+    color: var(--text2);
+    font-size: 14px;
+}
 
 /* ── APPLE MUSIC EMBED ── */
 /* ★ Apple Musicのプレイリストを埋め込む場所 ★ */

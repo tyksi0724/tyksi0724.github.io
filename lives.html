@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>★ LIVE / 出演履歴 ★ icebo.me</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- ▼ マーキーバー ▼ -->
+        <div class="marquee-bar">
+            <span class="marquee-inner"> ★ LIVE / 出演履歴 ★ icebo.me ★ </span>
+        </div>
+
+        <div class="wrapper">
+            <!-- ▼ ヘッダー ▼ -->
+            <header>
+                <div class="site-title">icebo.me</div>
+            </header>
+
+            <!-- ▼ ナビゲーション ▼ -->
+            <nav>
+                <a href="index.html#about">ABOUT</a>
+                <a href="index.html#works">WORKS</a>
+                <a href="lives.html">LIVE</a>
+                <a href="index.html#music">MUSIC</a>
+                <a href="index.html#links">LINKS</a>
+                <a href="index.html#contact">CONTACT</a>
+            </nav>
+
+            <!-- ▼ メイン: 出演履歴（全件）▼ -->
+            <section id="lives" class="panel">
+                <div class="panel-title">🎤 LIVE / 出演履歴（すべて）🎤</div>
+                <hr class="retro" />
+                <!-- ▼ 全出演を lives.js が自動で読み込みます（data-limit なし）▼ -->
+                <div class="lives-list"></div>
+                <div class="lives-more">
+                    <a href="index.html">◀ トップへ戻る ◀</a>
+                </div>
+            </section>
+
+            <!-- ▼ フッター ▼ -->
+            <footer>
+                <p>★ Copyright &copy; <span id="year"></span> icebo ★</p>
+                <p style="margin-top: 6px">
+                    <span class="blink">★ Made with Claude and HTML ★</span>
+                </p>
+            </footer>
+        </div>
+        <!-- /wrapper -->
+
+        <script>
+            document.getElementById("year").textContent =
+                new Date().getFullYear();
+        </script>
+        <!-- ▼ 出演履歴を lives/ から自動読み込み（全件）▼ -->
+        <script src="lives.js"></script>
+    </body>
+</html>
