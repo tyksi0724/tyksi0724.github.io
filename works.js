@@ -6,6 +6,12 @@
      2. 一覧に書かれた works/〇〇.json をそれぞれ読み込む
      3. .works-grid の中にカードを自動生成する
 
+   表示件数の制限:
+     <div class="works-grid" data-limit="3"></div>
+       → 最新3件だけ表示（メインページ用）
+     <div class="works-grid"></div>
+       → 全件表示（作品一覧ページ works.html 用）
+
    ★ 作品を追加する手順（index.html を触る必要はありません）★
      1. works/ フォルダに新しい 〇〇.json を作る
         （既存の works/works20260524.json をコピーすると楽）
@@ -24,6 +30,8 @@
 
     const grid = document.querySelector(".works-grid");
     if (!grid) return;
+
+    const limit = parseInt(grid.getAttribute("data-limit") || "0", 10);
 
     // 読み込み中はメッセージを出しておく
     grid.innerHTML = '<div class="works-loading blink">⏳ 作品を読み込み中…</div>';
@@ -68,7 +76,8 @@
             return res.json();
         })
         .then(function (manifest) {
-            const files = (manifest && manifest.items) || [];
+            let files = (manifest && manifest.items) || [];
+            if (limit > 0) files = files.slice(0, limit);
             // 各作品ファイルを並び順を保ったまま読み込む
             return Promise.all(
                 files.map(function (file) {

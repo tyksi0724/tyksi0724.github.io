@@ -285,6 +285,11 @@ nav a:hover {
     font-size: 13px;
     color: #aaa;
 }
+.works-more {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 13px;
+}
 /* 作品の読み込み中／作品なし のメッセージ */
 .works-loading {
     grid-column: 1 / -1;

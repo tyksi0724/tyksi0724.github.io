@@ -52,14 +52,17 @@
             1. works/ フォルダに 〇〇.json を作る
                （works/works20260524.json をコピーすると楽）
             2. works/manifest.json の "items" にそのファイル名を1行足す
-          → 中身は works.js が自動でここに描画します。
+          → ここには最新3件、全作品は works.html に自動表示されます。
           ====================================
           -->
                     <section id="works" class="panel">
                         <div class="panel-title">⚡ MY WORKS ⚡</div>
                         <hr class="retro" />
-                        <!-- ▼ 作品はここに works.js が自動で読み込みます ▼ -->
-                        <div class="works-grid"></div>
+                        <!-- ▼ 最新3件を works.js が自動で読み込みます ▼ -->
+                        <div class="works-grid" data-limit="3"></div>
+                        <div class="works-more">
+                            <a href="works.html">▶ 作品をすべて見る ▶</a>
+                        </div>
                     </section>
 
                     <!-- ★★ 出演履歴（LIVE / DJ）★★ -->
