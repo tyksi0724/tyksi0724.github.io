@@ -2,20 +2,24 @@
    ★ 出演履歴（LIVE / DJ）自動描画スクリプト ★
 
    仕組み:
-     1. lives/manifest.json を読み込む（出演ファイルの一覧・新しい順）
+     1. lives/manifest.json を読み込む（出演ファイルの一覧）
      2. 一覧に書かれた lives/〇〇.json をそれぞれ読み込む
      3. .lives-list の中に行を自動生成する（クリックでツイートへ遷移）
+
+   並び順:
+     manifest.json は「古い順（下が最新）」で追記していけばOK。
+     表示は自動で「新しい順」に並べ替えます。
 
    表示件数の制限:
      <div class="lives-list" data-limit="3"></div>
        → 最新3件だけ表示（メインページ用）
      <div class="lives-list"></div>
-       → 全件表示（出演履歴ページ lives.html 用）
+       → 全件を新しい順で表示（出演履歴ページ lives.html 用）
 
    ★ 出演を追加する手順 ★
      1. lives/ フォルダに新しい 〇〇.json を作る
         （既存の lives/live20260524.json をコピーすると楽）
-     2. lives/manifest.json の "items" の先頭にファイル名を足す（新しい順）
+     2. lives/manifest.json の "items" の一番下にファイル名を足す
 
    1出演の .json で使える項目:
      date   … 日付（例 "2026.05.24"）
@@ -85,6 +89,9 @@
         })
         .then(function (manifest) {
             let files = (manifest && manifest.items) || [];
+            // manifest は古い順（下が最新）なので、表示は新しい順に並べ替える
+            files = files.slice().reverse();
+            // 最新から limit 件だけに絞る（メインページ）
             if (limit > 0) files = files.slice(0, limit);
             return Promise.all(
                 files.map(function (file) {

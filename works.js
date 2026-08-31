@@ -6,11 +6,15 @@
      2. 一覧に書かれた works/〇〇.json をそれぞれ読み込む
      3. .works-grid の中にカードを自動生成する
 
+   並び順:
+     manifest.json は「古い順（下が最新）」で追記していけばOK。
+     表示は自動で「新しい順」に並べ替えます。
+
    表示件数の制限:
      <div class="works-grid" data-limit="3"></div>
        → 最新3件だけ表示（メインページ用）
      <div class="works-grid"></div>
-       → 全件表示（作品一覧ページ works.html 用）
+       → 全件を新しい順で表示（作品一覧ページ works.html 用）
 
    ★ 作品を追加する手順（index.html を触る必要はありません）★
      1. works/ フォルダに新しい 〇〇.json を作る
@@ -77,6 +81,9 @@
         })
         .then(function (manifest) {
             let files = (manifest && manifest.items) || [];
+            // manifest は古い順（下が最新）なので、表示は新しい順に並べ替える
+            files = files.slice().reverse();
+            // 最新から limit 件だけに絞る（メインページ）
             if (limit > 0) files = files.slice(0, limit);
             // 各作品ファイルを並び順を保ったまま読み込む
             return Promise.all(
